@@ -18,8 +18,9 @@ nameCases.format(['my', 'variable', 'name'], 'uppercamel') // MyVariableName
 
 # Supported name cases
 
+
 |Library string|Example|
-|---|---|---|
+|-------------|-------------|
 |`lowercamel` |`lowerCamelCase`|
 |`uppercamel` |`UpperCamelCase`|
 |`lowersnake` |`lower_snake_case`|
