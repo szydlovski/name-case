@@ -1,11 +1,9 @@
-const {
-  toLowerCase
-} = require('./helpers.js');
+const transforms = require('./transforms.js');
 
 const {
   findNameCaseByMatch,
   findNameCaseByName
-} = require('./name-cases.js');
+} = require('./nameCases.js');
 
 function reformatNameCase(inputString, targetNameCase) {
 	const words = parseNameCase(inputString);
@@ -14,7 +12,7 @@ function reformatNameCase(inputString, targetNameCase) {
 
 function formatNameCase(words, targetNameCase) {
 	const nameCase = findNameCaseByName(targetNameCase);
-	words = words.map(toLowerCase);
+	words = words.map(transforms.lower);
 	return nameCase.format(words);
 }
 
@@ -26,7 +24,7 @@ function parseNameCase(inputString) {
 	}
 	inputString = inputString.trim();
 	const nameCase = findNameCaseByMatch(inputString);
-	return nameCase.parse(inputString).map(toLowerCase);
+	return nameCase.parse(inputString).map(transforms.lower);
 }
 
 function validateNameCase(inputString, declaredNameCase) {

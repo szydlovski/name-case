@@ -2,7 +2,8 @@ const { expect } = require('chai');
 
 const NameCaseError = require('../src/NameCaseError.js');
 const nameCase = require('../src/index.js');
-const { getSupportedNameCases } = require('../src/name-cases.js');
+const transforms = require('../src/transforms.js')
+const { getSupportedNameCases } = require('../src/nameCases.js');
 const allTestCases = require('./cases.test.js');
 const validTestCases = allTestCases.filter(
 	({ caseName }) => caseName !== undefined
@@ -104,10 +105,9 @@ describe('validateNameCase', function () {
 	});
 	it('returns false if the name is not valid', function () {
     const supportedCases = getSupportedNameCases();
-    for (const hostCaseName of supportedCases) {
-      const testCases = validTestCases.filter(({caseName}) => caseName !== hostCaseName).concat(invalidTestCases);
-      for (const {nameString} of testCases) {
-        expect(nameCase.validate(nameString, hostCaseName)).to.be.false;
+    for (const caseName of supportedCases) {
+      for (const {nameString} of invalidTestCases) {
+        expect(nameCase.validate(nameString, caseName)).to.be.false;
       }
     }
   });
@@ -122,6 +122,35 @@ describe('validateNameCase', function () {
 		}).to.throw(TypeError, 'Can only validate the name case of strings, got');
 	});
 });
+
+describe('transforms', function() {
+	const {capitalize, lower, upper, camelize, sentencify} = transforms;
+	describe('capitalize', function() {
+		it('capitalizes the first letter of a string', function() {
+			expect(capitalize('hello')).to.equal('Hello');
+		})
+	})
+	describe('lower', function() {
+		it('transforms a string to lowercase', function() {
+			expect(lower('HELLO')).to.equal('hello');
+		})
+	})
+	describe('upper', function() {
+		it('transforms a string to uppercase', function() {
+			expect(upper('hello')).to.equal('HELLO');
+		})
+	})
+	describe('camelize', function() {
+		it('when used as a map function, capitalizes all strings in an array except the first one', function() {
+			expect(['one', 'two', 'three'].map(camelize)).to.deep.equal(['one', 'Two', 'Three']);
+		})
+	})
+	describe('sentencify', function() {
+		it('when used as a map function, capitalizes the first string in an array', function() {
+			expect(['one', 'two', 'three'].map(sentencify)).to.deep.equal(['One', 'two', 'three']);
+		})
+	})
+})
 
 // detectNameCase,
 // parseNameCase,

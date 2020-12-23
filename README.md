@@ -23,10 +23,31 @@ nameCases.format(['my', 'variable', 'name'], 'uppercamel') // MyVariableName
 |-------------|-------------|
 |`lowercamel` |`lowerCamelCase`|
 |`uppercamel` |`UpperCamelCase`|
-|`lowersnake` |`lower_snake_case`|
+|`upperwords` |`UPPER WORDS CASE`|
+|`lowerwords` |`lower words case`|
+|`capitalwords` |`Capital Words Case`|
+|`camelwords` |`camel Words Case`|
+|`sentencewords` |`Sentence words case`|
 |`uppersnake` |`UPPER_SNAKE_CASE`|
-|`lowerdash` |`lower-dash-case`|
+|`lowersnake` |`lower_snake_case`|
+|`capitalsnake` |`Capital_Snake_Case`|
+|`camelsnake` |`camel_Snake_Case`|
+|`sentencesnake` |`Sentence_snake_case`|
 |`upperdash` |`UPPER-DASH-CASE`|
+|`lowerdash` |`lower-dash-case`|
+|`capitaldash` |`Capital-Dash-Case`|
+|`cameldash` |`camel-Dash-Case`|
+|`sentencedash` |`Sentence-dash-case`|
+|`upperdot` |`UPPER.DOT.CASE`|
+|`lowerdot` |`lower.dot.case`|
+|`capitaldot` |`Capital.Dot.Case`|
+|`cameldot` |`camel.Dot.Case`|
+|`sentencedot` |`Sentence.dot.case`|
+|`upperdoner` |`UPPER|DONER|CASE`|
+|`lowerdoner` |`lower|doner|case`|
+|`capitaldoner` |`Capital|Doner|Case`|
+|`cameldoner` |`camel|Doner|Case`|
+|`sentencedoner` |`Sentence|doner|case`|
 
 # TODO
 

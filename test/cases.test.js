@@ -1,22 +1,61 @@
+const transforms = require('../src/transforms.js');
+
 module.exports = [
+  {
+    nameString: 'someExampleName',
+    caseName: 'lowercamel',
+    nameWords: ['some', 'example', 'name'],
+    reformat: [
+      {
+        nameString: 'SomeExampleName',
+        caseName: 'uppercamel'
+      },
+      {
+        nameString: 'SOME_EXAMPLE_NAME',
+        caseName: 'uppersnake'
+      },
+      {
+        nameString: 'some_example_name',
+        caseName: 'lowersnake'
+      },
+      {
+        nameString: 'some-example-name',
+        caseName: 'lowerdash'
+      },
+      {
+        nameString: 'SOME-EXAMPLE-NAME',
+        caseName: 'upperdash'
+      },
+      {
+        nameString: 'some example name',
+        caseName: 'lowerwords'
+      },
+      {
+        nameString: 'SOME EXAMPLE NAME',
+        caseName: 'upperwords'
+      },
+      {
+        nameString: 'Some Example Name',
+        caseName: 'capitalwords'
+      },
+      {
+        nameString: 'some.example.name',
+        caseName: 'lowerdot'
+      },
+      {
+        nameString: 'SOME.EXAMPLE.NAME',
+        caseName: 'upperdot'
+      },
+      {
+        nameString: 'Some example name',
+        caseName: 'sentencewords'
+      },
+    ]
+  },
   {
     nameString: 'lowerCamelCase',
     caseName: 'lowercamel',
     nameWords: ['lower', 'camel', 'case'],
-    reformat: [
-      {
-        nameString: 'LowerCamelCase',
-        caseName: 'uppercamel'
-      },
-      {
-        nameString: 'LOWER_CAMEL_CASE',
-        caseName: 'uppersnake'
-      },
-      {
-        nameString: 'lower-camel-case',
-        caseName: 'lowerdash'
-      },
-    ]
   },
   {
     nameString: 'l0werCamelCase',
@@ -33,46 +72,27 @@ module.exports = [
     caseName: 'uppercamel',
     nameWords: ['upper', 'camel', 'case1']
   },
-  {
-    nameString: 'lower_snake_case',
-    caseName: 'lowersnake',
-    nameWords: ['lower', 'snake', 'case']
-  },
-  {
-    nameString: 'lower_snake_case1',
-    caseName: 'lowersnake',
-    nameWords: ['lower', 'snake', 'case1']
-  },
-  {
-    nameString: 'UPPER_SNAKE_CASE',
-    caseName: 'uppersnake',
-    nameWords: ['upper', 'snake', 'case']
-  },
-  {
-    nameString: 'UPPER_SNAKE_CASE1',
-    caseName: 'uppersnake',
-    nameWords: ['upper', 'snake', 'case1']
-  },
-  {
-    nameString: 'lower-dash-case',
-    caseName: 'lowerdash',
-    nameWords: ['lower', 'dash', 'case']
-  },
-  {
-    nameString: 'lower-dash-case1',
-    caseName: 'lowerdash',
-    nameWords: ['lower', 'dash', 'case1']
-  },
-  {
-    nameString: 'UPPER-DASH-CASE',
-    caseName: 'upperdash',
-    nameWords: ['upper', 'dash', 'case']
-  },
-  {
-    nameString: 'UPPER-DASH-CASE1',
-    caseName: 'upperdash',
-    nameWords: ['upper', 'dash', 'case1']
-  },
+  ...[
+		['words', ' '],
+		['snake', '_'],
+		['dash', '-'],
+		['dot', '.'],
+		['doner', '|'],
+	].flatMap(([caseType, glue]) =>
+		[
+			['upper', transforms.upper],
+			['lower', transforms.lower],
+			['capital', transforms.capitalize],
+			['camel', transforms.camelize],
+			['sentence', transforms.sentencify],
+		].flatMap(([caseVariant, transform]) => [
+      ['some', 'example', 'name']
+    ].map(words => ({
+      nameString: words.map(transform).join(glue),
+			caseName: caseVariant + caseType,
+			nameWords: [...words]			
+		})))
+	),
   {
     nameString: '0notavalidcase',
     caseName: undefined
