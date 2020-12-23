@@ -43,11 +43,11 @@ nameCases.format(['my', 'variable', 'name'], 'uppercamel') // MyVariableName
 |`capitaldot` |`Capital.Dot.Case`|
 |`cameldot` |`camel.Dot.Case`|
 |`sentencedot` |`Sentence.dot.case`|
-|`upperdoner` |`UPPER|DONER|CASE`|
-|`lowerdoner` |`lower|doner|case`|
-|`capitaldoner` |`Capital|Doner|Case`|
-|`cameldoner` |`camel|Doner|Case`|
-|`sentencedoner` |`Sentence|doner|case`|
+|`upperdoner` |`UPPER`<code>&#124;</code>`DONER`<code>&#124;</code>`CASE`|
+|`lowerdoner` |`lower`<code>&#124;</code>`doner`<code>&#124;</code>`case`|
+|`capitaldoner` |`Capital`<code>&#124;</code>`Doner`<code>&#124;</code>`Case`|
+|`cameldoner` |`camel`<code>&#124;</code>`Doner`<code>&#124;</code>`Case`|
+|`sentencedoner` |`Sentence`<code>&#124;</code>`doner`<code>&#124;</code>`case`|
 
 # CHANGELOG
 
