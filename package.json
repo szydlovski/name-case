@@ -6,7 +6,7 @@
   "scripts": {
     "test": "nyc mocha test/index.test.js"
   },
-  "keywords": ["name case", "camel case", "snake case"],
+  "keywords": ["name case", "camel case", "snake case", "name convert", "convert case"],
   "author": "Kamil Szydlowski",
   "license": "MIT",
   "devDependencies": {
