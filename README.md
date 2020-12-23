@@ -49,6 +49,12 @@ nameCases.format(['my', 'variable', 'name'], 'uppercamel') // MyVariableName
 |`cameldoner` |`camel|Doner|Case`|
 |`sentencedoner` |`Sentence|doner|case`|
 
-# TODO
+# CHANGELOG
 
-- Add more name cases
+
+## [0.1.2] - 2020-12-23
+
+### Added
+
+- New name cases: words, dot and doner
+- Variations of new and old cases: lower, upper, capital, camel, sentence
